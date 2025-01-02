@@ -85,8 +85,6 @@ export const authOptions: NextAuthOptions = {
 			return session;
 		},
 		async signIn({ account, profile, token }: any) {
-			console.log({ account, profile, token });
-			console.log('In signIn');
 			return true;
 		},
 	},

@@ -19,7 +19,6 @@ export default function SignUpPage() {
 	const [error, setError] = useState('');
 	const onSubmit = async (e: UserSchemaSignupType) => {
 		const res = await signIn('credentials', {
-			email: e.Email,
 			name: e.Name,
 			number: e.MobileNumber,
 			password: e.Password,
@@ -60,49 +59,7 @@ export default function SignUpPage() {
 					</p>
 				</CardHeader>
 				<CardContent className='space-y-4'>
-					<Button
-						className='w-full bg-[#222] hover:bg-[#333] text-white'
-						variant='outline'
-						onClick={() => {
-							signIn('google', { callbackUrl: '/' });
-						}}
-					>
-						<FcGoogle className='mr-2 h-4 w-4' />
-						Sign up with Google
-					</Button>
-					<div className='relative'>
-						<div className='absolute inset-0 flex items-center'>
-							<span className='w-full border-t border-gray-700' />
-						</div>
-						<div className='relative flex justify-center text-xs uppercase'>
-							<span className='bg-[#111] px-2 text-gray-400'>OR</span>
-						</div>
-					</div>
 					<form className='space-y-4' onSubmit={handleSubmit(onSubmit)}>
-						<div className='space-y-2'>
-							<label
-								htmlFor='email'
-								className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
-							>
-								Email
-							</label>
-							<div className='relative'>
-								<Input
-									{...register('Email')}
-									id='email'
-									placeholder='microplacer@hotmail.com'
-									className='bg-[#222] border-gray-700 text-white pl-10'
-								/>
-								<Mail className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5' />
-							</div>
-						</div>
-
-						{errors.Email?.message && (
-							<p className='text-sm text-red-600 text-start '>
-								{errors.Email.message}
-							</p>
-						)}
-
 						<div className='space-y-2'>
 							<label
 								htmlFor='name'
